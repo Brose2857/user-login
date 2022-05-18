@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/add.css" %}">
+
+</head>
+<body>
+    <div class="full-page">
+        <div class="navbar">
+            <div>
+                
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href='../manage/'>Manage Tickets</a></li>
+                    <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">New Ticket</button></li>
+                </ul>
+            </nav>
+        </div>
+        <div id='login-form'class='login-page'>
+            <div class="form-box">
+                <div class='button-box'>
+                    <div id='btn'></div>
+                    
+                    
+                </div>
+                    <form id='login' method="POST" class='input-group-login' action = "../../ticket/">
+                        {% csrf_token %}         
+                <input type='text'class='input-field' name = "Name"placeholder='Name' required >
+                <input type='text'class='input-field'name = "dept"placeholder='Department' required>
+                <input type='text'class='input-field' name = "category"placeholder='Category' required>
+                <input type='text'class='input-field' name = "subject"placeholder='Subject' required>
+                <select class = "input-field" name = "priority" required><option value = "priority" >--priority--</option>
+                    <option value = "High">High</option>
+                    <option value = "Medium">Medium</option>
+                    <option value = "Low">Low</option></select>
+                <input type='text'class='input-field' name = "description" placeholder='Description' required>
+                <button type='submit'class='submit-btn'>Submit</button>
+                
+		 </form>
+		 
+            </div>
+        </div>
+    </div>
+    <script>
+        var x=document.getElementById('login');
+		var y=document.getElementById('register');
+		var z=document.getElementById('btn');
+		function register()
+		{
+			x.style.left='-400px';
+			y.style.left='50px';
+			z.style.left='110px';
+		}
+		function login()
+		{
+			x.style.left='50px';
+			y.style.left='450px';
+			z.style.left='0px';
+		}
+	</script>
+	<script>
+        var modal = document.getElementById('login-form');
+        window.onclick = function(event) 
+        {
+            if (event.target == modal) 
+            {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

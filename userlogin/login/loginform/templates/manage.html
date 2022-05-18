@@ -1,0 +1,16 @@
+<h1>Ticket List</h1>
+
+<table border="1">
+{% for x in mymembers %}
+<tr>
+<td>{{ x.id }}</td>
+<td>{{ x.Name }}</td>
+<td>{{ x.dept }}</td>
+<td>{{ x.category }}</td>
+<td>{{ x.subject }}</td>
+<td>{{ x.priority }}</td>
+<td>{{ x.description }}</td>
+
+</tr>
+{% endfor %}
+</table>
